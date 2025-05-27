@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Todos</h1>
+  <h1 class="text-2xl">Todos</h1>
   <form action="/todos/createTodo" method="POST">
     <input type="text" placeholder="Enter Todo Item" name="todoItem">
     <button type="submit">Add Todo</button>
   </form>
-  <ul class="todo__items">
+  <ul>
     <% todos.forEach(el=> {%>
       <li class="todo__item" data-id="<%= el.id %>">
-        <span>
+        <span class="<%= el.completed ? 'todo__item--completed' : 'todo__item--not-completed'%>">
           <%= el.todo %>
         </span>
         <button class="todo__delete-button"><i data-lucide="trash-2"></i></button>

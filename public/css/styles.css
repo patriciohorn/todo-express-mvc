@@ -1,9 +1,3 @@
-/* .todo__items {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-} */
-
 .todo__item {
   display: flex;
   gap: 8px;
@@ -31,4 +25,12 @@ button [data-lucide] {
 
 .todo__delete-button:hover {
   background-color: #e5e7eb;
+}
+
+.todo__item--completed {
+  text-decoration: line-through;
+}
+
+.todo__item--not-completed {
+  text-decoration: none;
 }

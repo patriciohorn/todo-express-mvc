@@ -41,6 +41,32 @@ module.exports = {
     } catch (error) {
       console.log(error);
     }
-    // res.json('Delted Todo');
+  },
+
+  markComplete: async (req, res) => {
+    console.log(req.body.todoIdFromJSFile);
+    try {
+      await Todo.findOneAndUpdate(
+        { _id: req.body.todoIdFromJSFile },
+        { completed: true }
+      );
+      console.log('Marked complete');
+      res.json('Marked Complete');
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  markIncomplete: async (req, res) => {
+    try {
+      await Todo.findOneAndUpdate(
+        { _id: req.body.todoIdFromJSFile },
+        { completed: false }
+      );
+      console.log('Marked Incomplete');
+      res.json('Marked Incomplete');
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
