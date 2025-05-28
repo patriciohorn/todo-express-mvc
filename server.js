@@ -5,6 +5,7 @@ const connectToDB = require('./config/database');
 
 const homeRoutes = require('./routes/home');
 const todosRoutes = require('./routes/todos');
+const editRoutes = require('./routes/edit');
 require('dotenv').config({ path: './config/.env' });
 
 connectToDB();
@@ -22,6 +23,7 @@ app.use(express.json());
 // mounting our mini app into the main app
 app.use('/', homeRoutes);
 app.use('/todos', todosRoutes);
+app.use('/edit', editRoutes);
 
 /// Running the server
 app.listen(process.env.PORT || 3000, () => {

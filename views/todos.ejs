@@ -19,7 +19,8 @@
         <span class="<%= el.completed ? 'todo__item--completed' : 'todo__item--not-completed'%>">
           <%= el.todo %>
         </span>
-        <button class="todo__delete-button"><i data-lucide="trash-2"></i></button>
+        <a href="/edit/<%= el._id%>" class="todo__button"><i data-lucide="file-pen"></i></a>
+        <button class="todo__button delete"><i data-lucide="trash-2"></i></button>
       </li>
       <% }) %>
   </ul>

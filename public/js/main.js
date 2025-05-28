@@ -1,4 +1,4 @@
-const deleteBtns = document.querySelectorAll('.todo__delete-button');
+const deleteBtns = document.querySelectorAll('.todo__button.delete');
 const todoItems = document.querySelectorAll(
   '.todo__item--not-completed'
 );

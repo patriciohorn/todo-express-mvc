@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.todo__delete-button {
+.todo__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,16 +14,23 @@
   font-size: 14px;
   cursor: pointer;
   border: #f3f4f6;
+  background: #f3f4f6;
   border-radius: 8px;
 }
 
-button [data-lucide] {
+button [data-lucide='trash-2'] {
   color: #fb2c36;
   width: 16px;
   height: 16px;
 }
 
-.todo__delete-button:hover {
+a [data-lucide='file-pen'] {
+  color: green;
+  width: 16px;
+  height: 16px;
+}
+
+.todo__button:hover {
   background-color: #e5e7eb;
 }
 
@@ -32,5 +39,32 @@ button [data-lucide] {
 }
 
 .todo__item--not-completed {
+  text-decoration: none;
+}
+
+.todo__edit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  line-height: 1;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.todo__edit-btn--confirm {
+  background-color: green;
+}
+
+.todo__edit-btn--delete {
+  background: red;
+}
+
+.todo__edit-btn--delete:link {
   text-decoration: none;
 }

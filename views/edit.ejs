@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit todo</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <h1>Edit list item</h1>
+  <ul>
+    <% todos.forEach((el)=> { %>
+
+      <% if(el._id.toString()===query ){ %>
+        <li class="todo__item" data-id="<%= el._id %>">
+          <input type="text" name="todoItem" value="<%= el.todo%>">
+          <a class="todo__edit-btn todo__edit-btn--confirm">Confirm</a>
+          <a class="todo__edit-btn todo__edit-btn--delete" href="/todos">Cancel</a>
+        </li>
+        <% } else {%>
+          <li class="todo__item" data-id="<%= el._id %>">
+            <span>
+              <%= el.todo %>
+            </span>
+          </li>
+          <% } %>
+            <% }) %>
+  </ul>
+  <script src="/js/edit.js"></script>
+</body>
+</html>
