@@ -11,7 +11,7 @@
   <ul>
     <% todos.forEach((el)=> { %>
 
-      <% if(el._id.toString()===query ){ %>
+      <% if(el._id==query ){ %>
         <li class="todo__item" data-id="<%= el._id %>">
           <input type="text" name="todoItem" value="<%= el.todo%>">
           <a class="todo__edit-btn todo__edit-btn--confirm">Confirm</a>

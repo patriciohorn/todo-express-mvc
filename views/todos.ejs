@@ -6,26 +6,39 @@
   <title>Document</title>
   <!-- Browser sends a GET request to this path -->
   <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-  <h1 class="text-2xl">Todos</h1>
-  <form action="/todos/createTodo" method="POST">
-    <input type="text" placeholder="Enter Todo Item" name="todoItem">
-    <button type="submit">Add Todo</button>
-  </form>
-  <ul>
-    <% todos.forEach(el=> {%>
-      <li class="todo__item" data-id="<%= el.id %>">
-        <span class="<%= el.completed ? 'todo__item--completed' : 'todo__item--not-completed'%>">
-          <%= el.todo %>
+<body class="bg-teal-100">
+  <div class="max-w-5xl mx-auto py-20">
+    <section class="mb-12">
+      <h1 class="text-4xl font-bold text-teal-700 mb-4">Pato's Todos</h1>
+      <form action="/todos/createTodo" method="POST">
+        <input type="text" placeholder="Enter Todo Item" name="todoItem" class="bg-white px-4 py-2.5 rounded-lg">
+        <button type="submit" class="inline-flex items-center justify-content bg-emerald-700 text-white font-medium px-5 py-2.5 rounded-md cursor-pointer hover:bg-emerald-800">Add Todo</button>
+      </form>
+
+    </section>
+    <section class="bg-neutral-50 rounded-lg p-6 mb-8 shadow-sm">
+      <ul>
+        <% todos.forEach(el=> {%>
+          <li class="todo__item text-lg" data-id="<%= el.id %>">
+            <span class="<%= el.completed ? 'todo__item--completed' : 'todo__item--not-completed'%>">
+              <%= el.todo %>
+            </span>
+            <a href="/edit/<%= el._id%>" class="todo__button"><i data-lucide="file-pen"></i></a>
+            <button class="todo__button delete"><i data-lucide="trash-2"></i></button>
+          </li>
+          <% }) %>
+      </ul>
+    </section>
+    <section class="bg-neutral-50 p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-medium">Things left to do: <span class="font-bold text-emerald-500">
+          <%= left %>
         </span>
-        <a href="/edit/<%= el._id%>" class="todo__button"><i data-lucide="file-pen"></i></a>
-        <button class="todo__button delete"><i data-lucide="trash-2"></i></button>
-      </li>
-      <% }) %>
-  </ul>
-  <h2>Things left to do: <%= left %>
-  </h2>
+      </h2>
+    </section>
+  </div>
+
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Browser send a GET request to use the main.js -->
   <script src="/js/main.js"></script>

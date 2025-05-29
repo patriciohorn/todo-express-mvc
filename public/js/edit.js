@@ -4,7 +4,8 @@ confirmBtn.addEventListener('click', changeContent);
 
 async function changeContent() {
   const todoId = this.parentNode.dataset.id;
-  const newTodoText = this.parentNode.childNodes[1].value;
+  // const newTodoText = this.parentNode.childNodes[1].value;
+  const newTodoText = this.parentNode.querySelector('input').value;
 
   try {
     const response = await fetch(`/edit/${todoId}`, {
@@ -18,5 +19,7 @@ async function changeContent() {
     const data = await response.json();
     console.log(data);
     location.assign('/todos');
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
